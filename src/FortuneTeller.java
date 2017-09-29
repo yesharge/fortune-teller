@@ -3,9 +3,10 @@ import java.util.Scanner;
 public class FortuneTeller {
 
 	public static void main(String[] args) {
-		String vacation, transportation;
-		int retirement; 
-		double bankBalance;
+		String vacation = "";
+		String transportation = "";
+		int retirement =0; 
+		double bankBalance =0.00;
 		Scanner input = new Scanner(System.in);
 		
 		System.out.println("Enter first name: ");
@@ -17,7 +18,7 @@ public class FortuneTeller {
 		System.out.println("Enter your age: ");
 		int age = input.nextInt();
 		
-		System.out.println("Enter birth month as integer: ");
+		System.out.println("Enter birth month as an integer: ");
 		int birthMonth = input.nextInt();
 		input.nextLine();
 		
@@ -94,6 +95,9 @@ public class FortuneTeller {
 		}else {
 			bankBalance = 0.00;
 		}
+		// Final Fortune
+		System.out.println(firstName+" "+lastName+" will retire in "+retirement+" years with $"+bankBalance
+				+" in the bank, a vacation home in "+vacation+", and travel by "+transportation+".");
 	}
 
 }
