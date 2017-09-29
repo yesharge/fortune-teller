@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class FortuneTeller {
@@ -6,59 +7,76 @@ public class FortuneTeller {
 		String vacation = "";
 		String transportation = "";
 		int retirement =0; 
+		int ageNum =0;
+		int birthMonthNum = 0;
+		int numSiblingsNum = 0;
 		double bankBalance =0.00;
 		Scanner input = new Scanner(System.in);
 		
 		System.out.println("Enter first name: ");
 		String firstName = input.nextLine();
-		
+		checkForQuit(firstName);
+	
 		System.out.println("Enter last name: ");
 		String lastName = input.nextLine();
+		checkForQuit(lastName);
 		
 		System.out.println("Enter your age: ");
-		int age = input.nextInt();
-		
+		String age = input.nextLine().toLowerCase();
+		checkForQuit(age);
+		if(!age.contains("quit")) {
+			ageNum = Integer.parseInt(age) ;
+		}
 		System.out.println("Enter birth month as an integer: ");
-		int birthMonth = input.nextInt();
-		input.nextLine();
+		String birthMonth = input.nextLine().toLowerCase();
+		checkForQuit(birthMonth);
+		if(!birthMonth.contains("quit")) {
+		birthMonthNum = Integer.parseInt(birthMonth);
+		}
 		
 		System.out.println("Enter favorite ROYGBIV color. Enter help if unsure what ROYGBIV is : ");
 		String favColor = input.nextLine().toLowerCase();
+		checkForQuit(favColor);
 		
-		if (favColor.contains("help")) {
-			System.out.println(" ROYGBIV is an acronym that makes up the rainbow."
+		while (favColor.contains("help")) {
+			System.out.println("ROYGBIV is an acronym that makes up the rainbow."
 					+ " R: Red, O: Orange, G: Green, B: Blue, I: Indigo, V: Violet \n ");
 			System.out.println("Enter favorite ROYGBIV color. Enter help if you are unsure what ROYGBIV is : ");
 			 favColor = input.nextLine();
+			 checkForQuit(favColor);
 		}
 		
 		System.out.println("Enter the number siblings you have: ");
-		int numSiblings = input.nextInt();
+		String numSiblings = input.nextLine().toLowerCase();
+		checkForQuit(numSiblings);
+		if(!numSiblings.contains("quit")) {
+			numSiblingsNum = Integer.parseInt(numSiblings);
+			}
 		
 		//retirement
-		if(age%2 == 0) {
-		retirement = age+13;
-		}if (age%2 ==1){
-		retirement = age+13;
+		if(ageNum%2 == 0) {
+		retirement = ageNum+13;
+		}if (ageNum%2 ==1){
+		retirement = ageNum+13;
 		}
 		
 	  // Vacation Home Location
-		if (numSiblings == 0) {
+		if (numSiblingsNum == 0) {
 		vacation = "San Fransico, California";
 		}
-		if (numSiblings == 1) {
+		if (numSiblingsNum == 1) {
 		vacation = "Big Sur, California";
 		}
-		if (numSiblings == 2) {
+		if (numSiblingsNum == 2) {
 			System.out.println("Your vacation home will be in Sedona, Arizona.");
 		}
-		if (numSiblings == 3) {
+		if (numSiblingsNum == 3) {
 		vacation ="Sonoma, California";
 		}
-		if (numSiblings >3) {
+		if (numSiblingsNum >3) {
 		vacation ="Miami, Florida";
 		}
-		if (numSiblings <0) {
+		if (numSiblingsNum <0) {
 		vacation = "Pyongyan, North Korea";
 		}
 // Mode of Transportation
@@ -84,20 +102,27 @@ public class FortuneTeller {
 		transportation = "spaceship";
 		}
 		// Bank Balance
-		if(birthMonth >= 1 && birthMonth <=4) {
+		if(birthMonthNum >= 1 && birthMonthNum <=4) {
 			bankBalance = 455555.65;
 		}
-		if (birthMonth >4 && birthMonth <=8) {
+		if (birthMonthNum >4 && birthMonthNum <=8) {
 			bankBalance = 245.67;
 		}
-		if (birthMonth >8 && birthMonth <=12) {
+		if (birthMonthNum >8 && birthMonthNum <=12) {
 			bankBalance = 12544434.89;
 		}else {
 			bankBalance = 0.00;
 		}
+		DecimalFormat df = new DecimalFormat("#.##");
 		// Final Fortune
-		System.out.println(firstName+" "+lastName+" will retire in "+retirement+" years with $"+bankBalance
+		
+		System.out.println(firstName+" "+lastName+" will retire in "+retirement+" years with $"+df.format(bankBalance)
 				+" in the bank, a vacation home in "+vacation+", and travel by "+transportation+".");
 	}
-
+	 public static void checkForQuit(String userInput) {
+		 if (userInput.equalsIgnoreCase("quit")) {
+			 System.out.println("Nobody likes a quitter!");
+			 System.exit(0);
+		 }
+	 }
 }
