@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class FortuneTeller {
 
 	public static void main(String[] args) {
+		//Declaring variables
 		String vacation = "";
 		String transportation = "";
 		int retirement =0; 
@@ -11,6 +12,7 @@ public class FortuneTeller {
 		int birthMonthNum = 0;
 		int numSiblingsNum = 0;
 		double bankBalance =0.00;
+		// User Input
 		Scanner input = new Scanner(System.in);
 		
 		System.out.println("Enter first name: ");
@@ -53,11 +55,11 @@ public class FortuneTeller {
 			numSiblingsNum = Integer.parseInt(numSiblings);
 			}
 		
-		//retirement
+		//Retirement
 		if(ageNum%2 == 0) {
 		retirement = ageNum+13;
-		}if (ageNum%2 ==1){
-		retirement = ageNum+13;
+		}if (ageNum%2 == 1){
+		retirement = ageNum+23;
 		}
 		
 	  // Vacation Home Location
@@ -68,7 +70,7 @@ public class FortuneTeller {
 		vacation = "Big Sur, California";
 		}
 		if (numSiblingsNum == 2) {
-			System.out.println("Your vacation home will be in Sedona, Arizona.");
+		vacation = "Sedona, Arizona";
 		}
 		if (numSiblingsNum == 3) {
 		vacation ="Sonoma, California";
@@ -96,7 +98,7 @@ public class FortuneTeller {
 		transportation = "bajaj";
 		}
 		if (favColor.contains("indigo")|| favColor.contains("i")) {
-		transportation = "Toyota Camry.";
+		transportation = "Toyota Camry";
 		}
 		if (favColor.contains("violet")|| favColor.contains("v")) {
 		transportation = "spaceship";
@@ -119,6 +121,7 @@ public class FortuneTeller {
 		System.out.println(firstName+" "+lastName+" will retire in "+retirement+" years with $"+df.format(bankBalance)
 				+" in the bank, a vacation home in "+vacation+", and travel by "+transportation+".");
 	}
+	//Terminate Program by quit input from user
 	 public static void checkForQuit(String userInput) {
 		 if (userInput.equalsIgnoreCase("quit")) {
 			 System.out.println("Nobody likes a quitter!");
