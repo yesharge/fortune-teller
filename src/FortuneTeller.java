@@ -82,25 +82,25 @@ public class FortuneTeller {
 		}
 		// Mode of Transportation
 		String transportation = null;
-		if (favColor.contains("red") || favColor.contains("r")) {
+		if (favColor.equals("red") || favColor.equals("r")) {
 			transportation = "Jaguar XF";
 		}
-		if (favColor.contains("orange") || favColor.contains("o")) {
+		if (favColor.equals("orange") || favColor.equals("o")) {
 			transportation = "bicycle";
 		}
-		if (favColor.contains("yellow") || favColor.contains("y")) {
+		if (favColor.equals("yellow") || favColor.equals("y")) {
 			transportation = "private jet";
 		}
-		if (favColor.contains("green") || favColor.contains("g")) {
+		if (favColor.equals("green") || favColor.equals("g")) {
 			transportation = "your feet";
 		}
-		if (favColor.contains("blue") || favColor.contains("b")) {
+		if (favColor.equals("blue") || favColor.equals("b")) {
 			transportation = "bajaj";
 		}
-		if (favColor.contains("indigo") || favColor.contains("i")) {
+		if (favColor.equals("indigo") || favColor.equals("i")) {
 			transportation = "Toyota Camry";
 		}
-		if (favColor.contains("violet") || favColor.contains("v")) {
+		if (favColor.contains("violet") || favColor.equals("v")) {
 			transportation = "spaceship";
 		}
 		// Bank Balance
