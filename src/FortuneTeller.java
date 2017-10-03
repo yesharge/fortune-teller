@@ -52,11 +52,11 @@ public class FortuneTeller {
 		}
 
 		// Retirement
-		int retirement = 0;
+		int retirement;
 		if (ageNum % 2 == 0) {
 			retirement = ageNum + 13;
 		}
-		if (ageNum % 2 == 1) {
+		else {
 			retirement = ageNum + 23;
 		}
 
@@ -108,10 +108,10 @@ public class FortuneTeller {
 		if (birthMonthNum >= 1 && birthMonthNum <= 4) {
 			bankBalance = 455555.65;
 		}
-		if (birthMonthNum > 4 && birthMonthNum <= 8) {
+		else if (birthMonthNum > 4 && birthMonthNum <= 8) {
 			bankBalance = 245.67;
 		}
-		if (birthMonthNum > 8 && birthMonthNum <= 12) {
+		else if (birthMonthNum > 8 && birthMonthNum <= 12) {
 			bankBalance = 12544434.89;
 		} else {
 			bankBalance = 0.00;
